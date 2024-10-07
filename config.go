@@ -320,7 +320,7 @@ func DefaultLANConfig() *Config {
 		AwarenessMaxMultiplier:  8,                      // Probe interval backs off to 8 seconds
 
 		GossipNodes:          3,                      // Gossip to 3 nodes
-		GossipInterval:       200 * time.Millisecond, // Gossip more rapidly
+		GossipInterval:       2000 * time.Millisecond, // Gossip more rapidly
 		GossipToTheDeadTime:  30 * time.Second,       // Same as push/pull
 		GossipVerifyIncoming: true,
 		GossipVerifyOutgoing: true,
@@ -351,7 +351,7 @@ func DefaultWANConfig() *Config {
 	conf.ProbeTimeout = 3 * time.Second
 	conf.ProbeInterval = 5 * time.Second
 	conf.GossipNodes = 4 // Gossip less frequently, but to an additional node
-	conf.GossipInterval = 500 * time.Millisecond
+	conf.GossipInterval = 5000 * time.Millisecond
 	conf.GossipToTheDeadTime = 60 * time.Second
 	return conf
 }
