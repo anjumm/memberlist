@@ -314,7 +314,7 @@ func DefaultLANConfig() *Config {
 		SuspicionMult:           1,                      // Suspect a node for 4 * log(N+1) * Interval
 		SuspicionMaxTimeoutMult: 6,                      // For 10k nodes this will give a max timeout of 120 seconds
 		PushPullInterval:        150 * time.Second,       // Low frequency
-		ProbeTimeout:            1 * time.Second, // Reasonable RTT time for LAN
+		ProbeTimeout:            2 * time.Second, // Reasonable RTT time for LAN
 		ProbeInterval:           120 * time.Second,        // Failure check every second
 		DisableTcpPings:         false,                  // TCP pings are safe, even with mixed versions
 		AwarenessMaxMultiplier:  6,                      // Probe interval backs off to 8 seconds
@@ -347,12 +347,12 @@ func DefaultWANConfig() *Config {
 	conf := DefaultLANConfig()
 	conf.TCPTimeout = 30 * time.Second
 	conf.SuspicionMult = 6
-	conf.PushPullInterval = 60 * time.Second
-	conf.ProbeTimeout = 3 * time.Second
-	conf.ProbeInterval = 5 * time.Second
-	conf.GossipNodes = 4 // Gossip less frequently, but to an additional node
+	conf.PushPullInterval = 120 * time.Second
+	conf.ProbeTimeout = 2 * time.Second
+	conf.ProbeInterval = 120 * time.Second
+	conf.GossipNodes = 1 // Gossip less frequently, but to an additional node
 	conf.GossipInterval = 12000 * time.Millisecond
-	conf.GossipToTheDeadTime = 60 * time.Second
+	conf.GossipToTheDeadTime = 120 * time.Second
 	return conf
 }
 
@@ -384,10 +384,10 @@ func DefaultLocalConfig() *Config {
 	conf.RetransmitMult = 2
 	conf.SuspicionMult = 3
 	conf.PushPullInterval = 15 * time.Second
-	conf.ProbeTimeout = 200 * time.Millisecond
+	conf.ProbeTimeout = 1000 * time.Millisecond
 	conf.ProbeInterval = time.Second
-	conf.GossipInterval = 100 * time.Millisecond
-	conf.GossipToTheDeadTime = 15 * time.Second
+	conf.GossipInterval = 12000 * time.Millisecond
+	conf.GossipToTheDeadTime = 150 * time.Second
 	return conf
 }
 
