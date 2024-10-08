@@ -299,7 +299,7 @@ func ParseCIDRs(v []string) ([]net.IPNet, error) {
 // errs on the side of caution, choosing values that are optimized
 // for higher convergence at the cost of higher bandwidth usage. Regardless,
 // these values are a good starting point when getting started with memberlist.
-func DefaultLANConfig() *Config {
+func DefaultLANConfig() *Config {?
 	hostname, _ := os.Hostname()
 	return &Config{
 		Name:                    hostname,
@@ -319,7 +319,7 @@ func DefaultLANConfig() *Config {
 		DisableTcpPings:         false,                  // TCP pings are safe, even with mixed versions
 		AwarenessMaxMultiplier:  8,                      // Probe interval backs off to 8 seconds
 
-		GossipNodes:          3,                      // Gossip to 3 nodes
+		GossipNodes:          2,                      // Gossip to 3 nodes
 		GossipInterval:       8000 * time.Millisecond, // Gossip more rapidly
 		GossipToTheDeadTime:  30 * time.Second,       // Same as push/pull
 		GossipVerifyIncoming: true,
@@ -332,7 +332,7 @@ func DefaultLANConfig() *Config {
 
 		DNSConfigPath: "/etc/resolv.conf",
 
-		HandoffQueueDepth: 1024,,
+		HandoffQueueDepth: 1024,
 		UDPBufferSize:     1400,
 		CIDRsAllowed:      nil, // same as allow all
 
