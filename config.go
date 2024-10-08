@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	//"github.com/armon/go-metrics"
-	//"github.com/hashicorp/go-multierror"
+	"github.com/armon/go-metrics"
+	"github.com/hashicorp/go-multierror"
 )
 
 type Config struct {
