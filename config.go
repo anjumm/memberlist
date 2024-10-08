@@ -299,7 +299,7 @@ func ParseCIDRs(v []string) ([]net.IPNet, error) {
 // errs on the side of caution, choosing values that are optimized
 // for higher convergence at the cost of higher bandwidth usage. Regardless,
 // these values are a good starting point when getting started with memberlist.
-func DefaultLANConfig() *Config {
+//func DefaultLANConfig() *Config {
 	hostname, _ := os.Hostname()
 	return &Config{
 		Name:                    hostname,
