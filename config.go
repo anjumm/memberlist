@@ -332,7 +332,7 @@ func DefaultLANConfig() *Config {
 
 		DNSConfigPath: "/etc/resolv.conf",
 
-		HandoffQueueDepth: 1024,
+		HandoffQueueDepth: 1024,,
 		UDPBufferSize:     1400,
 		CIDRsAllowed:      nil, // same as allow all
 
