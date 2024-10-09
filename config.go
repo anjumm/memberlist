@@ -308,8 +308,8 @@ func DefaultLANConfig() *Config {
 		AdvertiseAddr:           "",
 		AdvertisePort:           7946,
 		ProtocolVersion:         ProtocolVersion2Compatible,
-		TCPTimeout:              10 * time.Second,       // Timeout after 10 seconds
-		IndirectChecks:          3,                      // Use 3 nodes for the indirect ping
+		TCPTimeout:              15 * time.Second,       // Timeout after 10 seconds
+		IndirectChecks:          1,                      // Use 3 nodes for the indirect ping
 		RetransmitMult:          1,                      // Retransmit a message 4 * log(N+1) nodes
 		SuspicionMult:           1,                      // Suspect a node for 4 * log(N+1) * Interval
 		SuspicionMaxTimeoutMult: 6,                      // For 10k nodes this will give a max timeout of 120 seconds
@@ -317,7 +317,7 @@ func DefaultLANConfig() *Config {
 		ProbeTimeout:            2 * time.Second, // Reasonable RTT time for LAN
 		ProbeInterval:           120 * time.Second,        // Failure check every second
 		DisableTcpPings:         false,                  // TCP pings are safe, even with mixed versions
-		AwarenessMaxMultiplier:  6,                      // Probe interval backs off to 8 seconds
+		AwarenessMaxMultiplier:  10,                      // Probe interval backs off to 8 seconds
 
 		GossipNodes:          1,                      // Gossip to 3 nodes
 		GossipInterval:       15 * time.Second, // Gossip more rapidly
